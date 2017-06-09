@@ -1,4 +1,4 @@
-all: fc17.pdf fc17-proceedings.pdf thesis.pdf thesisgr.pdf may31deliverable.pdf
+all: fc17.pdf fc17-proceedings.pdf thesis.pdf thesisgr.pdf may31deliverable.pdf what_is_trust.pdf 
 
 #.ONESHELL:
 fc17.pdf: fc17/* common/* splncs.bst
@@ -40,6 +40,14 @@ may31deliverable.pdf: may31deliverable/* common/* may31deliverable/gametheory/* 
 	pdflatex may31deliverable.tex; \
 	pdflatex may31deliverable.tex; \
 	rm -rf may31deliverable.aux may31deliverable.log may31deliverable.out may31deliverable.toc may31deliverable.lof may31deliverable.lot may31deliverable.bbl may31deliverable.blg
+
+what_is_trust.pdf: what_is_trust/* common/*
+	export TEXINPUTS=.:./what_is_trust//:./common//:; \
+	pdflatex what_is_trust.tex; \
+	bibtex what_is_trust.aux; \
+	pdflatex what_is_trust.tex; \
+	pdflatex what_is_trust.tex; \
+	rm -rf what_is_trust.aux what_is_trust.log what_is_trust.out what_is_trust.toc what_is_trust.lof what_is_trust.lot what_is_trust.bbl what_is_trust.blg
 
 clean:
 	rm -rf *.aux *.log *.out *.toc *.lof *.lot *.bbl *.blg *.pdf
