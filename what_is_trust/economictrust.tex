@@ -1,7 +1,10 @@
-\section{Economic Trust}
-  \subsection{Definitions}
-
-  \subsection{Desired Properties}
-    \begin{enumerate}
-      \item Property 1
-    \end{enumerate}
+\section*{Economic Trust}
+  We would like to provide players with an API where they:
+  \begin{enumerate}
+    \item Entrust coins to another player
+    \item Appropriate coins previously entrusted by another player
+    \item Retract coins previously entrusted to another player
+    \item Query trust towards another player
+  \end{enumerate}
+  The following functionality provides such an interface:
+  \subimport{./algorithms/}{trustfunc.tex}
