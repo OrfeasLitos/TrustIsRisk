@@ -42,6 +42,18 @@
 	\end{cases} \enspace.
       \end{equation*}
       In other words, all players trust all other players infinitely with respect to the current state of the world.
-      \item 
+
+      \item Let $t_1, t_2 \in \mathbb{N}: t_1 > t_2$. Then $\forall \left(P_1, P_2, GS, States, t_1, t_2\right) \in
+      \mathcal{D}_{Tr}$ it is
+      \begin{equation*}
+        Tr\left(P_1, P_2, GS, States, t_1, t_2\right) =
+	\begin{cases}
+	\begin{aligned}
+	  \infty, & \mbox{ if } GS\left(t_2\right) \in States \\
+          0, & \mbox{ if } GS\left(t_2\right) \notin States
+	\end{aligned}
+	\end{cases} \enspace.
+      \end{equation*}
+      This means that the past cannot be modified.
 
     \end{enumerate}
