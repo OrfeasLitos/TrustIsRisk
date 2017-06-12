@@ -1,0 +1,32 @@
+\Suppressnumber
+\begin{lstlisting}[label=trustfunc, style=numbers]
+(*@$\mathcal{F}_{Trust}$ \Reactivatenumber@*)
+Initialize trusts from all players to all players to 0
+Initialize coins for all players to some values
+
+Upon receiving entrust((*@$id_2$@*), x) from (*@$id_1$@*):
+  If (*@$id_1$@*) has at least x coins
+    Increase trust from (*@$id_1$@*) to (*@$id_2$@*) by x
+    Decrease the coins of (*@$id_1$@*) by x
+    Recalculate indirectTrusts
+  Else discard request
+
+Upon receiving steal((*@$id_2$@*), x) from (*@$id_1$@*):
+  If trust from (*@$id_2$@*) to (*@$id_1$@*) is equal to or exceeds x
+    Decrease trust from (*@$id_2$@*) to (*@$id_1$@*) by x
+    Increase the coins of (*@$id_1$@*) by x
+    Recalculate indirectTrusts
+  Else discard request
+
+Upon receiving distrust((*@$id_2$@*), x) from (*@$id_1$@*):
+  If trust from (*@$id_1$@*) to (*@$id_2$@*) is equal to or exceeds x
+    Decrease trust from (*@$id_1$@*) to (*@$id_2$@*) by x
+    Increase the coins of (*@$id_1$@*) by x
+    Recalculate indirectTrusts
+  Else discard request
+
+Upon receiving query((*@$id_2$@*)) from (*@$id_1$@*):
+  answer = indirectTrust((*@$id_1$@*), (*@$id_2$@*))
+  Send answer to (*@$id_1$@*)
+\end{lstlisting}
+
