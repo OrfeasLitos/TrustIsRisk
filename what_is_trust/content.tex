@@ -1,27 +1,28 @@
-\section{Definitions}
-  \begin{definition}[Agent]
-     An agent can be thought of as either a programme/Turing machine/protocol (inanimate) or as a pseudonymous identity
-     corresponding to a human. Let $\mathcal{P}$ be the set of all agents.
-  \end{definition}
-  \begin{definition}[State]
-    Let agent $P \in \mathcal{P}$. If $P$ is inanimate, then $P$'s state at an instance $t \in \mathbb{N}$, is a function $S :
-    \mathcal{P} \times \mathbb{N} \rightarrow \mathcal{S}$ that returns the state of the machine. If $P$ is a human, then
-    $S\left(P, t\right)$ is a record of the internal condition of the human, as observed by the human.
-  \end{definition}
-  \begin{definition}[Global State]
-    The global state $GS : \mathbb{N} \rightarrow \mathcal{S}^{|\mathcal{P}|}$ is the set of the states of all agents $P \in
-    \mathcal{P}$ at a specific instance: 
-    \begin{gather*}
-      GS\left(t\right) = \left(S\left(P_1, t\right), ...,\left(P_n, t\right)\right) \enspace, \\
-      \mbox{where } \bigcup\limits_{i = 1}^n\{P_i\} = \mathcal{P} \enspace.
-    \end{gather*}
-  \end{definition}
-  \begin{definition}[Trust]
-    Trust is a function $T : \mathcal{P}^2 \times \mathcal{S}^{|\mathcal{P}|} \times
-    \mathbb{P}\left(\mathcal{S}^{|\mathcal{P}|}\right) \times \mathbb{N}^2 \rightarrow \mathcal{R}^{+}$.
-  \end{definition}
-  \noindent Let $in = \left(P_1, P_2, GS_1, \{GS'_1, ...,GS'_2\}, t_1, t_2\right) \in \mathcal{P}^2 \times
-  \mathcal{S}^{|\mathcal{P}|} \times \mathbb{P}\left(\mathcal{S}^{|\mathcal{P}|}\right) \times \mathbb{N}^2$. Then
-  $T\left(in\right)$ is interpreted as the level of commitment $P_1$ can provide that the actions of $P_2$ upon a world where
-  $GS\left(t_1\right) = GS_1$ will lead to a world where $GS\left(t_2\right) \in \{GS'_1, ...,GS'_2\}$.
+\section{Abstract trust}
+  \subsection{Definitions}
+    \begin{definition}[Agent]
+       An agent can be thought of as either a programme/Turing machine/protocol (inanimate) or as a pseudonymous identity
+       corresponding to a human. Let $\mathcal{P}$ be the set of all agents.
+    \end{definition}
+    \begin{definition}[State]
+      Let agent $P \in \mathcal{P}$. If $P$ is inanimate, then $P$'s state at an instance $t \in \mathbb{N}$, is a function $S :
+      \mathcal{P} \times \mathbb{N} \rightarrow \mathcal{S}$ that returns the state of the machine. If $P$ is a human, then
+      $S\left(P, t\right)$ is a record of the internal condition of the human, as observed by the human.
+    \end{definition}
+    \begin{definition}[Global State]
+      The global state $GS : \mathbb{N} \rightarrow \mathcal{S}^{|\mathcal{P}|}$ is the set of the states of all agents $P \in
+      \mathcal{P}$ at a specific instance: 
+      \begin{gather*}
+        GS\left(t\right) = \left(S\left(P_1, t\right), ...,\left(P_n, t\right)\right) \enspace, \\
+        \mbox{where } \bigcup\limits_{i = 1}^n\{P_i\} = \mathcal{P} \enspace.
+      \end{gather*}
+    \end{definition}
+    \begin{definition}[Trust]
+      Trust is a function $Tr : \mathcal{P}^2 \times \mathcal{S}^{|\mathcal{P}|} \times
+      \mathbb{P}\left(\mathcal{S}^{|\mathcal{P}|}\right) \times \mathbb{N}^2 \rightarrow \mathcal{R}^{+}$.
+    \end{definition}
+    \noindent Let $in = \left(P_1, P_2, GS_1, \{GS'_1, ...,GS'_2\}, t_1, t_2\right) \in \mathcal{P}^2 \times
+    \mathcal{S}^{|\mathcal{P}|} \times \mathbb{P}\left(\mathcal{S}^{|\mathcal{P}|}\right) \times \mathbb{N}^2$. Then
+    $Tr\left(in\right)$ is interpreted as the level of commitment $P_1$ can provide that the actions of $P_2$ upon a world where
+    $GS\left(t_1\right) = GS_1$ will lead to a world where $GS\left(t_2\right) \in \{GS'_1, ...,GS'_2\}$.
 
