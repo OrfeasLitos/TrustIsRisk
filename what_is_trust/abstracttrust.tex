@@ -1,25 +1,61 @@
 \section*{Abstract Trust}
   \subsection{Definitions}
-    \begin{definition}[Agent]
-       An agent can be thought of as either a programme/Turing machine/protocol (inanimate) or as a pseudonymous identity
-       corresponding to a human. Let $\mathcal{P}$ be the set of all agents.
+    Consider the UC setting, with an environment $\mathcal{E}$, an adversary $\mathcal{A}$ and a set of ITIs that follow a
+    given protocol $\Pi$.
+
+    \begin{definition}[Player]
+      A player is an ITM that follows $\Pi$. Let $\mathcal{P}$ be the set of all agents.
     \end{definition}
-    \begin{definition}[State]
-      Let agent $P \in \mathcal{P}$. If $P$ is inanimate, then $P$'s state at an instance $t \in \mathbb{N}$, is a function $S :
-      \mathcal{P} \times \mathbb{N} \rightarrow \mathcal{S}$ that returns the state of the machine. If $P$ is a human, then
-      $S\left(P, t\right)$ is a record of the internal condition of the human, as observed by the human.
-    \end{definition}
-    \begin{definition}[Global State]
-      The global state $GS : \mathbb{N} \rightarrow \mathcal{S}^{|\mathcal{P}|}$ is the set of the states of all agents $P \in
-      \mathcal{P}$ at a specific instance: 
-      \begin{gather*}
-        GS\left(t\right) = \left(S\left(P_1, t\right), ...,S\left(P_n, t\right)\right) \enspace, \\
-        \mbox{where } \bigcup\limits_{i = 1}^n\{P_i\} = \mathcal{P} \enspace.
-      \end{gather*}
-    \end{definition}
+
+    Intuitively, players spontaneously feel different needs of varying intensities and seek to satisfy them, either on their
+    own, consuming part of their input tokens in the process, or by delegating the process to other players and paying them
+    for their help with part of their input tokens. The choice depends on the perceived difference in price. Each player
+    plays rationally, always attempting to maximize her utility.
+    
+    More precisely, let $N$ be a (finite) set containing all possible needs. At arbitrary moments during execution,
+    $\mathcal{E}$ can provide input to any player $Alice \in \mathcal{P}$ in the form $\left(idx, n, u\right)$, where $idx
+    \in \mathbb{N}, n \in N, u \in \mathbb{R}^{+}$. $idx$ represents an index number that is unique for each input
+    $\mathcal{E}$ generates, $n$ represents the need, whereas $u$ the additional utility $Alice$ will obtain if $n$ is
+    satisfied. $n$ is satisfied when $Alice$ learns the string $s\left(idx, Alice, n\right)$, either by directly calculating
+    it or by receiving it as subroutine output from another player. Some of the players, given as input the tuple $\left(idx,
+    Alice, n\right)$, can calculate $s\left(idx, Alice, n\right)$ more efficiently than $Alice$, which means that they need
+    to consume less input tokens than $Alice$ for this calculation. $Alice$ can choose to delegate this calculation to a more
+    efficient player $Bob$ and provide the necessary input tokens for his computation with a surplus to compensate $Bob$ for
+    his effort. Both players are better off, because $Alice$ spent less tokens than she would if she had calculated
+    $s\left(idx, Alice, n\right)$ herself, whilst $Bob$ obtained some tokens which can in turn be used to satisfy some of his
+    future needs.
+
+    Nevertheless, one can say that at first sight it is in $Bob$'s best interest to trick $Alice$ into believing that he can
+    efficiently calculate $s\left(idx, Alice, n\right)$ and skip the computation entirely after obtaining $Alice$'s input,
+    thus keeping all the tokens of the defrauded player. Evidently $Alice$ would avoid further interaction with $Bob$, but
+    without any way to signal other players of this unfortunate encounter, $Bob$ can keep defrauding other players until the
+    pool of players is depleted; if the players are many or their number is increasing, $Bob$ may keep this enterprise very
+    profitable for an indefinite amount of time. This being a rational strategy, every player would eventually follow this
+    (rather unscrupulous) mode of conduct which through a "tragedy of the commons" effect invariably leads to a world where
+    each player must satisfy all her needs by herself, entirely missing out on the prospect of division of labor.
+
+    One answer to that undesirable turn of events is a method through which $Alice$, prior to interacting with an aspiring
+    helper $Bob$, consults the collective knowledge of her neighborhood of the network regarding him. There are several
+    methods to achieve this, such as star-based global ratings. This method however has several drawbacks:
+
+    \begin{itemize}
+      \item Very good ratings cost nothing, thus convey little valuable information.
+      \item Different players may have different preferences, global ratings fail to capture this.
+      \href{https://en.wikipedia.org/wiki/Arrow\%27s_impossibility_theorem}{Arrow's impossibility theorem} is possibly relevant
+      here.
+      \item Susceptible to Sybil attacks; mitigation techniques are ad-hoc and require (partial) centralization and
+      secrecy/obfuscation of methods to succeed, thus undermining the decentralized, transparent nature of the system.
+    \end{itemize}
+
+    We thus define two kinds of trust: direct and indirect. Direct trust from $Alice$ to $Bob$ is represented (somehow) by
+    input tokens (initially belonging to $Alice$) actively put on an account shared with $Bob$. As long as $Bob$ does not take
+    these tokens, $Alice$ directly trusts him equally to the amount of tokens.
+    
+    This information can be used by another player $Charlie$ that directly trusts $Alice$ in order to derive information
+    regarding $Bob$'s trustworthiness, even if $Charlie$ does not directly trust $Bob$. This is called indirect trust.
+
     \begin{definition}[Trust]
-      Trust is a function $Tr : \mathcal{P}^2 \times \mathcal{S}^{|\mathcal{P}|} \times
-      \mathbb{P}\left(\mathcal{S}^{|\mathcal{P}|}\right) \times \mathbb{N}^2 \rightarrow \mathcal{R}^{+} \cup \{\infty\}$.
+      
     \end{definition}
     \noindent Let $in = \left(P_1, P_2, GS_1, \{GS'_1, ...,GS'_n\}, t_1, t_2\right) \in \mathcal{P}^2 \times
     \mathcal{S}^{|\mathcal{P}|} \times \mathbb{P}\left(\mathcal{S}^{|\mathcal{P}|}\right) \times \mathbb{N}^2$. Then
