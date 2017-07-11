@@ -119,6 +119,10 @@ Upon receiving message (query, playerid)
     and all global states in $States$ are more desirable than $\mathcal{S}^{|\mathcal{P}|} \setminus States$ for $P_1$ at
     the moment $t_2$, then $P_1$ prefers to hand over whatever she controls to $P_2$ at the moment $t_1$ than maintain this
     control for herself.
+  \begin{definition}[Indirect Trust]
+    The indirect trust from $Alice$ to $Charlie$ is measured in tokens like direct trust and can be calculated
+    deterministically given the existing direct trusts between all players.
+  \end{definition}
 
     \item We can generalize the previous notion as follows: \\ Let $\left(P_1, P_2, GS, States, t_1, t_2\right), \left(P_1,
     P_3, GS, States, t_1, t_2\right) \in \mathcal{D}_{Tr}$. If
