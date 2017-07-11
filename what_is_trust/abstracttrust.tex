@@ -85,51 +85,12 @@ Upon receiving message (query, playerid)
     \{}$Alice$\texttt{, }$Bob$\texttt{\})}}.
   \end{definition}
 
-\subsection{Desired Properties}
-  \begin{enumerate}
-    \item Let $t \in \mathbb{N}$. Then $\forall \left(P_1, P_2, GS, States, t, t\right) \in \mathcal{D}_{Tr}$ it is
-    \begin{equation*}
-      Tr\left(P_1, P_2, GS, States, t, t\right) =
-	\begin{cases}
-	\begin{aligned}
-	  \infty, & \mbox{ if } GS \in States \\
-        0, & \mbox{ if } GS \notin States
-	\end{aligned}
-	\end{cases} \enspace.
-    \end{equation*}
-    In other words, all players trust all other players infinitely with respect to the current state of the world.
-
-    \item Let $t_1, t_2 \in \mathbb{N}: t_1 > t_2$. Then $\forall \left(P_1, P_2, GS, States, t_1, t_2\right) \in
-    \mathcal{D}_{Tr}$ it is
-    \begin{equation*}
-      Tr\left(P_1, P_2, GS, States, t_1, t_2\right) =
-	\begin{cases}
-	\begin{aligned}
-	  \infty, & \mbox{ if } GS\left(t_2\right) \in States \\
-        0, & \mbox{ if } GS\left(t_2\right) \notin States
-	\end{aligned}
-	\end{cases} \enspace.
-    \end{equation*}
-    This means that the past cannot be modified.
-
-    \item Let $\left(P_1, P_2, GS, States, t_1, t_2\right) \in \mathcal{D}_{Tr}$. If 
-    \begin{equation*}
-      Tr\left(P_1, P_2, GS, States, t_1, t_2\right) > Tr\left(P_1, P_1, GS, States, t_1, t_2\right)
-    \end{equation*}
-    and all global states in $States$ are more desirable than $\mathcal{S}^{|\mathcal{P}|} \setminus States$ for $P_1$ at
-    the moment $t_2$, then $P_1$ prefers to hand over whatever she controls to $P_2$ at the moment $t_1$ than maintain this
-    control for herself.
   \begin{definition}[Indirect Trust]
     The indirect trust from $Alice$ to $Charlie$ is measured in tokens like direct trust and can be calculated
     deterministically given the existing direct trusts between all players.
   \end{definition}
 
-    \item We can generalize the previous notion as follows: \\ Let $\left(P_1, P_2, GS, States, t_1, t_2\right), \left(P_1,
-    P_3, GS, States, t_1, t_2\right) \in \mathcal{D}_{Tr}$. If
-    \begin{equation*}
-      Tr\left(P_1, P_2, GS, States, t_1, t_2\right) > Tr\left(P_1, P_3, GS, States, t_1, t_2\right)
-    \end{equation*}
-    and all global states in $States$ are more desirable than $\mathcal{S}^{|\mathcal{P}|} \setminus States$ for $P_1$ at
-    the moment $t_2$, then $P_1$ prefers to hand over whatever she controls to $P_2$ at the moment $t_1$ than hand over
-    whatever she controls to $P_3$ at the moment $t_1$.
+\section{Desired Properties for Indirect Trust}
+  \begin{enumerate}
+    \item 
   \end{enumerate}
