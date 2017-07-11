@@ -23,6 +23,14 @@
   effort. Both players are better off, because $Alice$ spent less tokens than she would if she had calculated $s\left(idx, d,
   Alice\right)$ herself, whilst $Bob$ obtained some tokens which can in turn be used to satisfy some of his future desires.
 
+  \begin{definition}[Cost of desire]
+    The cost of $Alice$'s indexed desire $\left(idx, d\right) \in \left(\mathbb{N}, \mathcal{D}\right)$ when satisfied by $Bob$
+    is equal to the input tokens that $Alice$ is required by $Bob$ to give to him in order for him to calculate $s\left(idx,
+    Alice, d\right)$ and is represented by $c\left(idx, d, Alice, Bob\right)$. The cost of satisfying this desire herself is
+    represented by $c\left(idx, d, Alice\right)$ and is equal to the number of computational steps $Alice$ must make in order
+    to calculate $s\left(idx, d, Alice\right)$.
+  \end{definition}
+
 \section{Motivation for our Trust model}
   Nevertheless, one can say that at first sight it is in $Bob$'s best interest to trick $Alice$ into believing that he can
   efficiently calculate $s\left(idx, Alice, d\right)$ and skip the computation entirely after obtaining $Alice$'s input,
