@@ -80,14 +80,14 @@ Upon receiving message (query, playerid)
     send message (available-tokens) to playerid
   \end{lstlisting}
   \begin{definition}[Direct Trust]
-    The direct trust from $Alice$ to $Bob$ is zero if the $\left(Alice, Bob\right)$ shared account does not exist, otherwise it
-    is equal to the available tokens count sent from this shared account an as a response to a message \emph{\texttt{(query,
-    \{}$Alice$\texttt{, }$Bob$\texttt{\})}}.
+    The direct trust from $Alice$ to $Bob$, represented by $DTr_{Alice \rightarrow Bob}$, is zero if the $\left(Alice,
+    Bob\right)$ shared account does not exist, otherwise it is equal to the available tokens count sent from this shared
+    account an as a response to a message \emph{\texttt{(query, \{}$Alice$\texttt{, }$Bob$\texttt{\})}}.
   \end{definition}
 
   \begin{definition}[Indirect Trust]
-    The indirect trust from $Alice$ to $Charlie$ is measured in tokens like direct trust and can be calculated
-    deterministically given the existing direct trusts between all players.
+    The indirect trust from $Alice$ to $Bob$, $Tr_{Alice \rightarrow Bob}$, is measured in tokens like direct trust and can be
+    calculated deterministically given the existing direct trusts between all players.
   \end{definition}
 
 \section{Desired Properties for Indirect Trust}
