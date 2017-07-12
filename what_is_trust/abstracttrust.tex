@@ -57,35 +57,12 @@
 
 \section{Definitions}
   We thus define two kinds of trust: direct and indirect. Direct trust from $Alice$ to $Bob$ is represented by input tokens
-  (initially belonging to $Alice$) actively put by her in an account shared with $Bob$. As long as $Bob$ does not take these
-  tokens, $Alice$ directly trusts him equally to the amount of tokens in the shared account.
+  (initially belonging to $Alice$) actively given by her to an escrow from which $Bob$ can also take them. As long as $Bob$
+  does not take these tokens, $Alice$ directly trusts him equally to the amount of tokens held by the escrow.
   
   This information can be used by another player $Charlie$ that directly trusts $Alice$ in order to derive information
   regarding $Bob$'s trustworthiness, even if $Charlie$ does not directly trust $Bob$. This is called indirect trust.
 
-  \begin{definition}[Shared Account]
-    An $\left(Alice, Bob\right)$ shared account is an ITI created by $Alice$ that runs the following code:
-  \end{definition}
-  \Suppressnumber
-  \begin{lstlisting}[label=sharedaccount, style=numbers]
-((*@$Alice$@*), (*@$Bob$@*)) Shared Account
-(*@\Reactivatenumber@*)
-Initialization: available-tokens = length(initial input)
-
-Upon receiving input {0,1}(*@$^{\mbox{new-tokens}}$@*) from (*@$Alice$@*)
-  available-tokens += new-tokens
-
-Upon receiving message (take, desired-tokens, playerid)
-  if (playerid (*@$\in$@*) {(*@$Alice$@*), (*@$Bob$@*)})
-    taken-tokens = min(desired-tokens, available-tokens)
-    if (taken-tokens > 0)
-      available-tokens -= taken-tokens
-      input (*@$1^{\mbox{taken-tokens}}$@*) to playerid
-
-Upon receiving message (query, playerid)
-  if (playerid (*@$\in$@*) {(*@$Alice$@*), (*@$Bob$@*)})
-    send message (available-tokens) to playerid
-  \end{lstlisting}
   \begin{definition}[Direct Trust]
     The direct trust from $Alice$ to $Bob$, represented by $DTr_{Alice \rightarrow Bob}$, is equal to the available tokens
     count sent by $\mathcal{F}_{Trust}$ as a response to a message \emph{\texttt{(query\_direct\_trust, \{}$Alice$\texttt{,
