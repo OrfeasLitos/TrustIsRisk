@@ -24,11 +24,11 @@
   Alice\right)$ herself, whilst $Bob$ obtained some tokens which can in turn be used to satisfy some of his future desires.
 
   \begin{definition}[Cost of desire]
-    The cost of $Alice$'s indexed desire $\left(idx, d\right) \in \left(\mathbb{N}, \mathcal{D}\right)$ when satisfied by $Bob$
-    is equal to the input tokens that $Alice$ is required by $Bob$ to give to him in order for him to calculate $s\left(idx,
-    Alice, d\right)$ and is represented by $c\left(idx, d, Alice, Bob\right)$. The cost of satisfying this desire herself is
-    represented by $c\left(idx, d, Alice\right)$ and is equal to the number of computational steps $Alice$ must make in order
-    to calculate $s\left(idx, d, Alice\right)$.
+    The cost of $Alice$'s indexed desire, say $\left(idx, d\right) \in \left(\mathbb{N}, \mathcal{D}\right)$, when satisfied by
+    $Bob$ is equal to the input tokens that $Alice$ is required by $Bob$ to give to him in order for him to calculate
+    $s\left(idx, Alice, d\right)$ and is represented by $c\left(idx, d, Alice, Bob\right)$. The cost of satisfying this desire
+    herself is represented by $c\left(idx, d, Alice\right)$ and is equal to the number of computational steps $Alice$ must make
+    in order to calculate $s\left(idx, d, Alice\right)$.
   \end{definition}
 
 \section{Motivation for our Trust model}
@@ -68,7 +68,7 @@
   \end{definition}
   \Suppressnumber
   \begin{lstlisting}[label=sharedaccount, style=numbers]
-(*@$\left(Alice, Bob\right)$@*) Shared Account
+((*@$Alice$@*), (*@$Bob$@*)) Shared Account
 (*@\Reactivatenumber@*)
 Initialization: available-tokens = length(initial input)
 
@@ -110,6 +110,6 @@ Upon receiving message (query, playerid)
       c\left(idx, d, Alice, Bob\right) & < c\left(idx, d, Alice\right) \mbox{ and} \\
       c\left(idx, d, Alice, Bob\right) & \leq Tr_{Alice \rightarrow Bob} \enspace,
     \end{align*}
-    then it is rational for $Alice$ to prefer to delegate the calculation of $s\left(idx, d, Alice\right)$ to $Bob$ than to
-    calculate it herself.
+    then it should be rational for $Alice$ to prefer to delegate the calculation of $s\left(idx, d, Alice\right)$ to $Bob$ than
+    to calculate it herself.
   \end{enumerate}
