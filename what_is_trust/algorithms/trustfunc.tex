@@ -1,32 +1,34 @@
 \Suppressnumber
 \begin{lstlisting}[label=trustfunc, style=numbers]
 (*@$\mathcal{F}_{Trust}$ \Reactivatenumber@*)
-Initialize trusts from all players to all players to 0
-Initialize coins for all players to some values
+Initialization:
+for all (*@$Alice, Bob \in \mathcal{P}$@*)
+  (*@$DTr_{Alice \rightarrow Bob}$@*) = 0
+  (*@$Tr_{Alice \rightarrow Bob}$@*) = 0
 
-Upon receiving entrust((*@$id_2$@*), x) from (*@$id_1$@*):
-  If (*@$id_1$@*) has at least x coins
-    Increase trust from (*@$id_1$@*) to (*@$id_2$@*) by x
-    Decrease the coins of (*@$id_1$@*) by x
-    Recalculate indirectTrusts
+Upon receiving input entrust((*@$Bob$@*), 1(*@$^{\mbox{tokens}}$@*)) from (*@$Alice$@*):
+  (*@$DTr_{Alice \rightarrow Bob}$@*) += tokens
+
+Upon receiving message steal((*@$Bob$@*), tokens) from (*@$Alice$@*):
+  If (*@$DTr_{Bob \rightarrow Alice}$@*) >= tokens
+    (*@$DTr_{Bob \rightarrow Alice}$@*) -= tokens
+    input 1(*@$^{\mbox{tokens}}$@*) to (*@$Alice$@*)
   Else discard request
 
-Upon receiving steal((*@$id_2$@*), x) from (*@$id_1$@*):
-  If trust from (*@$id_2$@*) to (*@$id_1$@*) is equal to or exceeds x
-    Decrease trust from (*@$id_2$@*) to (*@$id_1$@*) by x
-    Increase the coins of (*@$id_1$@*) by x
-    Recalculate indirectTrusts
+Upon receiving message distrust((*@$Bob$@*), tokens) from (*@$Alice$@*):
+  If (*@$DTr_{Alice \rightarrow Bob}$@*) >= tokens
+    (*@$DTr_{Alice \rightarrow Bob}$@*) -= tokens
+    input 1(*@$^{\mbox{tokens}}$@*) to (*@$Alice$@*)
   Else discard request
 
-Upon receiving distrust((*@$id_2$@*), x) from (*@$id_1$@*):
-  If trust from (*@$id_1$@*) to (*@$id_2$@*) is equal to or exceeds x
-    Decrease trust from (*@$id_1$@*) to (*@$id_2$@*) by x
-    Increase the coins of (*@$id_1$@*) by x
-    Recalculate indirectTrusts
+Upon receiving message query_direct_trust((*@$Alice$@*), (*@$Bob$@*)) from (*@$Charlie$@*):
+  If (*@$Charlie \in \{Alice, Bob\}$@*) # Privacy
+    send message (*@$DTr_{Alice \rightarrow Bob}$@*) to (*@$Charlie$@*)
   Else discard request
 
-Upon receiving query((*@$id_2$@*)) from (*@$id_1$@*):
-  answer = indirectTrust((*@$id_1$@*), (*@$id_2$@*))
-  Send answer to (*@$id_1$@*)
+Upon receiving message query_indirect_trust((*@$Alice$@*), (*@$Bob$@*)) from (*@$Charlie$@*):
+  If (*@$Charlie$@*) == (*@$Alice$@*) # Privacy
+    (*@$Tr_{Alice \rightarrow Bob}$@*) = calculate_indirect_trust((*@$Alice$@*), (*@$Bob$@*), all direct trusts)
+    send message (*@$Tr_{Alice \rightarrow Bob}$@*) to (*@$Charlie$@*)
+  Else discard request
 \end{lstlisting}
-
