@@ -97,6 +97,16 @@ Upon receiving message (query, playerid)
     calculated deterministically given the existing direct trusts between all players.
   \end{definition}
 
+  We would like to provide players with an API where they:
+  \begin{enumerate}
+    \item Entrust coins to another player
+    \item Appropriate coins previously entrusted by another player
+    \item Retract coins previously entrusted to another player
+    \item Query trust towards another player
+  \end{enumerate}
+  The following functionality provides such an interface:
+  \subimport{./algorithms/}{trustfunc.tex}
+
 \section{Desired Properties for Indirect Trust}
   \begin{enumerate}
     \item $Tr_{Alice \rightarrow Bob} \geq DTr_{Alice \rightarrow Bob}$
@@ -113,13 +123,3 @@ Upon receiving message (query, playerid)
     then it should be rational for $Alice$ to prefer to delegate the calculation of $s\left(idx, d, Alice\right)$ to $Bob$ than
     to calculate it herself.
   \end{enumerate}
-
-  We would like to provide players with an API where they:
-  \begin{enumerate}
-    \item Entrust coins to another player
-    \item Appropriate coins previously entrusted by another player
-    \item Retract coins previously entrusted to another player
-    \item Query trust towards another player
-  \end{enumerate}
-  The following functionality provides such an interface:
-  \subimport{./algorithms/}{trustfunc.tex}
