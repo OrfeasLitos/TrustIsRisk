@@ -1,0 +1,24 @@
+\section{Introduction}
+  Consider the UC setting, with an environment $\mathcal{E}$, an adversary $\mathcal{A}$ and a set of ITIs that follow a
+  given protocol $\Pi$.
+
+  \subimport{./definitions/}{player.tex}
+
+  Intuitively, players spontaneously feel different desires of varying intensities and seek to satisfy them, either on their
+  own, consuming part of their input tokens in the process, or by delegating the process to other players and paying them for
+  their help with part of their input tokens. The choice depends on the perceived difference in price. Each player plays
+  rationally, always attempting to maximize her utility.
+  
+  More precisely, let $\mathcal{D}$ be a (finite) set containing all possible desires. At arbitrary moments during execution,
+  $\mathcal{E}$ can provide input to any player $Alice \in \mathcal{P}$ in the form $\left(idx, d, u\right)$, where $idx \in
+  \mathbb{N}, d \in \mathcal{D}, u \in \mathbb{R}^{+}$. $idx$ represents an index number that is unique for each input
+  $\mathcal{E}$ generates, $d$ represents the desire, whereas $u$ the additional utility $Alice$ will obtain if $d$ is
+  satisfied. $d$ is satisfied when $Alice$ learns the string $s\left(idx, d, Alice\right)$, either by directly calculating it
+  or by receiving it as subroutine output from another player. Some of the players, given as input the tuple $\left(idx, d,
+  Alice\right)$, can calculate $s\left(idx, Alice, d\right)$ more efficiently than $Alice$, which means that they need to
+  consume less input tokens than $Alice$ for this calculation. $Alice$ can choose to delegate this calculation to a more
+  efficient player $Bob$ and provide the necessary input tokens for his computation with a surplus to compensate $Bob$ for his
+  effort. Both players are better off, because $Alice$ spent less tokens than she would if she had calculated $s\left(idx, d,
+  Alice\right)$ herself, whilst $Bob$ obtained some tokens which can in turn be used to satisfy some of his future desires.
+
+  \subimport{./definitions/}{costofdesire.tex}

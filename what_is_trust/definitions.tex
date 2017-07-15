@@ -1,0 +1,21 @@
+\section{Definitions}
+  We thus define two kinds of trust: direct and indirect. Direct trust from $Alice$ to $Bob$ is represented by input tokens
+  (initially belonging to $Alice$) actively given by her to an escrow from which $Bob$ can also take them. As long as $Bob$
+  does not take these tokens, $Alice$ directly trusts him equally to the amount of tokens held by the escrow.
+  
+  This information can be used by another player $Charlie$ that directly trusts $Alice$ in order to derive information
+  regarding $Bob$'s trustworthiness, even if $Charlie$ does not directly trust $Bob$. This is called indirect trust.
+
+  \subimport{./definitions/}{directtrust.tex}
+
+  \subimport{./definitions/}{indirecttrust.tex}
+
+  We would like to provide players with an ideal functionality where they:
+  \begin{enumerate}
+    \item Directly trust coins to another player
+    \item Steal coins previously entrusted by another player
+    \item Retract coins previously entrusted to another player
+    \item Query trust towards another player
+  \end{enumerate}
+  The following functionality provides such an interface:
+  \subimport{./algorithms/}{trustfunc.tex}

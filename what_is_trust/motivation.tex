@@ -1,0 +1,23 @@
+\section{Motivation for our Trust model}
+  Nevertheless, one can say that at first sight it is in $Bob$'s best interest to trick $Alice$ into believing that he can
+  efficiently calculate $s\left(idx, Alice, d\right)$ and skip the computation entirely after obtaining $Alice$'s input,
+  thus keeping all the tokens of the defrauded player. Evidently $Alice$ would avoid further interaction with $Bob$, but
+  without any way to signal other players of this unfortunate encounter, $Bob$ can keep defrauding others until the pool of
+  players is depleted; if the players are numerous or their number is increasing, $Bob$ may keep this enterprise very
+  profitable for an indefinite amount of time. This being a rational strategy, every player would eventually follow it, which
+  through a "tragedy of the commons" effect invariably leads to a world where each player must satisfy all her desires by
+  herself, entirely missing out on the prospect of division of labor.
+
+  One answer to that undesirable turn of events is a method through which $Alice$, prior to interacting with an aspiring
+  helper $Bob$, consults the collective knowledge of her neighborhood of the network regarding him. There are several
+  methods to achieve this, such as star-based global ratings. This method however has several drawbacks:
+
+  \begin{itemize}
+    \item Very good ratings cost nothing, thus convey little valuable information.
+    \item Different players may have different preferences, global ratings fail to capture this.
+    \href{https://en.wikipedia.org/wiki/Arrow\%27s_impossibility_theorem}{Arrow's impossibility theorem} is possibly relevant
+    here.
+    \item Susceptible to Sybil attacks; mitigation techniques are ad-hoc and require (partial) centralization and
+    secrecy/obfuscation of methods to succeed, thus undermining the decentralized, transparent nature of the system, a
+    property that we actively seek.
+  \end{itemize}
