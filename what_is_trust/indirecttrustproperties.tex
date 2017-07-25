@@ -27,3 +27,18 @@
       \end{enumerate}
       Note that the first property can be deduced from the second.
   \end{enumerate}
+
+  Let $x = \left(idx, d, Alice\right)$. Several ideas exist as to what rules $p\left(x\right)$ should satisfy:
+  \begin{enumerate}
+    \item Indirect trust is only used when offered prices are equal, otherwise the player offering the cheapest price is
+    chosen.
+    \begin{align*}
+      & c\left(x, Bob\right) < c\left(x, Charlie\right) & \Rightarrow p\left(x\right) \neq Charlie \enspace. \\
+      &
+      \begin{rcases}
+        c\left(x, Bob\right) = c\left(x, Charlie\right) \\
+	Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}
+      \end{rcases}
+      & \Rightarrow p\left(x\right) \neq Charlie \enspace.
+    \end{align*}
+  \end{enumerate}
