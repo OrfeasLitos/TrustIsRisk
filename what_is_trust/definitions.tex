@@ -5,7 +5,10 @@
   account.
   
   This information can be used by another player $Charlie$ that directly trusts $Alice$ in order to derive information
-  regarding $Bob$'s trustworthiness, even if $Charlie$ does not directly trust $Bob$. This is called indirect trust.
+  regarding $Bob$'s trustworthiness, even if $Charlie$ does not directly trust $Bob$. Through a transitive property, $Dean$,
+  who directly trusts $Charlie$, can in turn derive information from the direct trust from $Alice$ to $Bob$. This reasoning can
+  be extended to an arbitrary number of players, as long as they have at least one trust path to $Alice$. This is called
+  indirect trust.
 
   \subimport{./definitions/}{directtrust.tex}
 
