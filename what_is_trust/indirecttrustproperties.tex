@@ -6,11 +6,24 @@
 	Tr^2_{Alice \rightarrow Bob} = Tr^1_{Alice \rightarrow Bob} - DTr^1_{Alice \rightarrow Bob} + DTr^2_{Alice \rightarrow
 	Bob} \enspace.
       \end{equation*}
-    \item Consider an indexed desire $\left(idx, d\right)$ $Alice$ has. If
-    \begin{align*}
-      c\left(idx, d, Alice, Bob\right) & < c\left(idx, d, Alice\right) \mbox{ and} \\
-      c\left(idx, d, Alice, Bob\right) & \leq Tr_{Alice \rightarrow Bob} \enspace,
-    \end{align*}
-    then it should be rational for $Alice$ to prefer to delegate the calculation of $s\left(idx, d, Alice\right)$ to $Bob$ than
-    to calculate it herself.
+    \item Consider an indexed desire $\left(idx, d\right)$ $Alice$ has. Let $p\left(idx, d, Alice\right)$ be a function that
+    returns the player that $Alice$ should rationally delegate the calculation of $s\left(idx, d, Alice\right)$ to.
+      \begin{enumerate}
+        \item If a player is cheaper and more trustworthy than all other players, delegate the calculation to him.
+        \begin{gather*}
+	  \exists Bob \in \mathcal{P}: \forall Charlie \in \mathcal{P} \setminus \{Bob\} \\
+	  \left(c\left(idx, d, Alice, Bob\right) < c\left(idx, d, Alice, Charlie\right) \wedge \right. \\
+	  \left. \wedge \: Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}\right) \Rightarrow \\
+	  \Rightarrow p\left(idx, d, Alice\right) = Bob \enspace.
+	\end{gather*}
+	\item If there exists a player $Bob$ that is both cheaper and more trustworthy than $Charlie$, do not delegate the
+	calculation to $Charlie$.
+	\begin{gather*}
+	  \exists Bob, Charlie \in \mathcal{P}: \\
+	  \left(c\left(idx, d, Alice, Bob\right) < c\left(idx, d, Alice, Charlie\right) \wedge \right. \\
+	  \left. \wedge \: Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}\right) \Rightarrow \\
+	  \Rightarrow p\left(idx, d, Alice\right) \neq Charlie \enspace.
+	\end{gather*}
+      \end{enumerate}
+      Note that the first property can be deduced from the second.
   \end{enumerate}
