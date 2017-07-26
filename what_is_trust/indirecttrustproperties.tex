@@ -13,7 +13,7 @@
         \begin{gather*}
 	  \exists Bob \in \mathcal{P}: \forall Charlie \in \mathcal{P} \setminus \{Bob\} \\
 	  \left(c\left(idx, d, Alice, Bob\right) < c\left(idx, d, Alice, Charlie\right) \wedge \right. \\
-	  \left. \wedge \: Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}\right) \Rightarrow \\
+	  \left. \wedge \ Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}\right) \Rightarrow \\
 	  \Rightarrow p\left(idx, d, Alice\right) = Bob \enspace.
 	\end{gather*}
 	\item If there exists a player $Bob$ that is both cheaper and more trustworthy than $Charlie$, do not delegate the
@@ -21,7 +21,7 @@
 	\begin{gather*}
 	  \exists Bob, Charlie \in \mathcal{P}: \\
 	  \left(c\left(idx, d, Alice, Bob\right) < c\left(idx, d, Alice, Charlie\right) \wedge \right. \\
-	  \left. \wedge \: Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}\right) \Rightarrow \\
+	  \left. \wedge \ Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}\right) \Rightarrow \\
 	  \Rightarrow p\left(idx, d, Alice\right) \neq Charlie \enspace.
 	\end{gather*}
       \end{enumerate}
