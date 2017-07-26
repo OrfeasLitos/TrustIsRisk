@@ -48,4 +48,20 @@
         & \Rightarrow p\left(x\right) \neq Charlie
       \end{aligned}
     \end{gather*}
+    \item Similarly to the previous idea, indirect trust must exceed cost. In this case however, in case of multiple
+    trustworthy and cheap players, the indirect trust is considered before the cost.
+    \begin{gather*}
+        c\left(x, Charlie\right) > Tr_{Alice \rightarrow Charlie} \Rightarrow p\left(x\right) \neq Charlie \\
+	\mbox{For the following, } \forall y \in \{Bob, Charlie\} \ c\left(x, y\right) \leq Tr_{Alice \rightarrow y} \enspace.
+	\\
+      \begin{aligned}
+        & Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie} & \Rightarrow p\left(x\right) \neq Charlie \\
+        &
+        \begin{rcases}
+          Tr_{Alice \rightarrow Bob} = Tr_{Alice \rightarrow Charlie} \\
+  	  c\left(x, Bob\right) < c\left(x, Charlie\right)
+        \end{rcases}
+        & \Rightarrow p\left(x\right) \neq Charlie
+      \end{aligned}
+    \end{gather*}
   \end{enumerate}
