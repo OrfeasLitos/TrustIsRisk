@@ -34,36 +34,32 @@
     for $Alice$ to delegate $s\left(idx, d, Alice\right)$ to him. If there exist multiple players that $Alice$ indirectly
     trusts more than their cost, then the cheapest one is chosen. If multiple trustworthy enough players have the same cost,
     the most trustworthy one is chosen.
-    \begin{gather*}
-        c\left(x, Charlie\right) > Tr_{Alice \rightarrow Charlie} \Rightarrow p\left(x\right) \neq Charlie \\
-	\mbox{For the following, } \forall v \in \{Bob, Charlie\} \ c\left(x, v\right) \leq Tr_{Alice \rightarrow v} \enspace.
-	\\
-      \begin{aligned}
-        & c\left(x, Bob\right) < c\left(x, Charlie\right) & \Rightarrow p\left(x\right) \neq Charlie  \\
-        &
-        \begin{rcases}
-          c\left(x, Bob\right) = c\left(x, Charlie\right) \\
-  	Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}
-        \end{rcases}
-        & \Rightarrow p\left(x\right) \neq Charlie
-      \end{aligned}
-    \end{gather*}
+    \begin{align*}
+      & c\left(x, Charlie\right) > Tr_{Alice \rightarrow Charlie} & \Rightarrow p\left(x\right) \neq Charlie \\
+      \mathrlap{\mbox{For the following, } \forall v \in \{Bob, Charlie\} \ c\left(x, v\right) \leq Tr_{Alice \rightarrow v}
+      \enspace.} \\
+      & c\left(x, Bob\right) < c\left(x, Charlie\right) & \Rightarrow p\left(x\right) \neq Charlie  \\
+      &
+      \begin{rcases}
+        c\left(x, Bob\right) = c\left(x, Charlie\right) \\
+        Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}
+      \end{rcases}
+      & \Rightarrow p\left(x\right) \neq Charlie
+    \end{align*}
     \item Similarly to the previous idea, the indirect trust must exceed the cost. In this case however, in case of multiple
     trustworthy and cheap players, the indirect trust is considered before the cost.
-    \begin{gather*}
-        c\left(x, Charlie\right) > Tr_{Alice \rightarrow Charlie} \Rightarrow p\left(x\right) \neq Charlie \\
-	\mbox{For the following, } \forall v \in \{Bob, Charlie\} \ c\left(x, v\right) \leq Tr_{Alice \rightarrow v} \enspace.
-	\\
-      \begin{aligned}
-        & Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie} & \Rightarrow p\left(x\right) \neq Charlie \\
-        &
-        \begin{rcases}
-          Tr_{Alice \rightarrow Bob} = Tr_{Alice \rightarrow Charlie} \\
-  	  c\left(x, Bob\right) < c\left(x, Charlie\right)
-        \end{rcases}
-        & \Rightarrow p\left(x\right) \neq Charlie
-      \end{aligned}
-    \end{gather*}
+    \begin{align*}
+      & c\left(x, Charlie\right) > Tr_{Alice \rightarrow Charlie} & \Rightarrow p\left(x\right) \neq Charlie \\
+      \mathrlap{\mbox{For the following, } \forall v \in \{Bob, Charlie\} \ c\left(x, v\right) \leq Tr_{Alice \rightarrow v}
+      \enspace.} \\
+      & Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie} & \Rightarrow p\left(x\right) \neq Charlie \\
+      &
+      \begin{rcases}
+        Tr_{Alice \rightarrow Bob} = Tr_{Alice \rightarrow Charlie} \\
+        c\left(x, Bob\right) < c\left(x, Charlie\right)
+      \end{rcases}
+      & \Rightarrow p\left(x\right) \neq Charlie
+    \end{align*}
     \item The player with the lowest difference between indirect trust and cost is chosen.
     \begin{equation*}
       p\left(x\right) = \argmin\limits_{v \in \mathcal{P}}\left(Tr_{Alice \rightarrow v} - c\left(x, v\right)\right)
