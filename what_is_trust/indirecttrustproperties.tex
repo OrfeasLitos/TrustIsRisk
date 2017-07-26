@@ -35,16 +35,17 @@
     trusts more than their cost, then the cheapest one is chosen. If multiple trustworthy enough players have the same cost,
     the most trustworthy one is chosen.
     \begin{gather*}
-        c\left(x, Charlie\right) > Tr_{Alice \rightarrow Charlie} \Rightarrow p\left(x\right) \neq Charlie \enspace. \\
-        \mbox{For the following, } \forall y \in \{Bob, Charlie\} c\left(x, y\right) \leq Tr_{Alice \rightarrow y} \enspace. \\
+        c\left(x, Charlie\right) > Tr_{Alice \rightarrow Charlie} \Rightarrow p\left(x\right) \neq Charlie \\
+	\mbox{For the following, } \forall y \in \{Bob, Charlie\} \ c\left(x, y\right) \leq Tr_{Alice \rightarrow y} \enspace.
+	\\
       \begin{aligned}
-        & c\left(x, Bob\right) < c\left(x, Charlie\right) & \Rightarrow p\left(x\right) \neq Charlie \enspace. \\
+        & c\left(x, Bob\right) < c\left(x, Charlie\right) & \Rightarrow p\left(x\right) \neq Charlie  \\
         &
         \begin{rcases}
           c\left(x, Bob\right) = c\left(x, Charlie\right) \\
   	Tr_{Alice \rightarrow Bob} > Tr_{Alice \rightarrow Charlie}
         \end{rcases}
-        & \Rightarrow p\left(x\right) \neq Charlie \enspace.
+        & \Rightarrow p\left(x\right) \neq Charlie
       \end{aligned}
     \end{gather*}
   \end{enumerate}
