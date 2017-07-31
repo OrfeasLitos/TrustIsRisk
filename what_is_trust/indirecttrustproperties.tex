@@ -60,6 +60,12 @@
       \end{rcases}
       & \Rightarrow p\left(x\right) \neq Charlie
     \end{align*}
+    \item The player with the highest difference between indirect trust and cost is chosen.
+    \begin{equation*}
+      p\left(x\right) = \argmax\limits_{v \in \mathcal{P}}\left(Tr_{Alice \rightarrow v} - c\left(x, v\right)\right)
+    \end{equation*}
+    This aims to maximize trust and minimize cost and, contrary to the previous two approaches, attaches equal importance to
+    these two metrics.
     \item The player with the lowest difference between indirect trust and cost is chosen.
     \begin{equation*}
       p\left(x\right) = \argmin\limits_{v \in \mathcal{P}}\left(Tr_{Alice \rightarrow v} - c\left(x, v\right)\right)
