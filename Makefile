@@ -1,4 +1,4 @@
-all: fc17.pdf fc17-proceedings.pdf thesis.pdf thesisgr.pdf may31deliverable.pdf
+all: fc17.pdf fc17-proceedings.pdf thesis.pdf thesisgr.pdf may31deliverable.pdf ecescon17.pdf
 
 #.ONESHELL:
 fc17.pdf: fc17/* common/* splncs.bst
