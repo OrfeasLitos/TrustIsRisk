@@ -41,5 +41,13 @@ may31deliverable.pdf: may31deliverable/* common/* splncs.bst may31deliverable/ga
 	pdflatex may31deliverable.tex; \
 	rm -rf may31deliverable.aux may31deliverable.log may31deliverable.out may31deliverable.toc may31deliverable.lof may31deliverable.lot may31deliverable.bbl may31deliverable.blg
 
+ecescon17.pdf: ecescon17/* common/* splncs.bst
+	export TEXINPUTS=.:./ecescon17//:./common//:; \
+	pdflatex ecescon17.tex; \
+	bibtex ecescon17.aux; \
+	pdflatex ecescon17.tex; \
+	pdflatex ecescon17.tex; \
+	rm -rf ecescon17.aux ecescon17.log ecescon17.out ecescon17.bbl ecescon17.blg
+
 clean:
 	rm -rf *.aux *.log *.out *.toc *.lof *.lot *.bbl *.blg *.pdf
