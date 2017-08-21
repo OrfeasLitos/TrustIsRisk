@@ -70,7 +70,7 @@
 \newenvironment{sepproof}[1]{\noindent \textbf{#1}}{\qed \smallskip \ \\}
 
 %environment for proof sketch
-\newenvironment{proofsketch}{\noindent \textit{Proof Sketch.}}{\qed \smallskip \ \\}
+\newenvironment{proofsketch}{\begin{IEEEproof}[Proof Sketch]}{\end{IEEEproof}}
 
 %eliminate section numbering from \subsection
 \renewcommand{\thesubsection}{\arabic{subsection}}
@@ -100,3 +100,6 @@
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
+
+%tie proofs to IEEEproof environment
+\renewenvironment{proof}{\begin{IEEEproof}}{\end{IEEEproof}}
