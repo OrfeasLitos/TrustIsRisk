@@ -1,7 +1,7 @@
 \section{Evolution of Trust}
   Trust Is Risk is a game that runs indefinitely. In each turn, a player is chosen, decides what to play and, if valid, the
   chosen turn is executed.
-  \subimport{fc17/definitions/}{turns.tex}
+  \subimport{ecescon17/definitions/}{turns.tex}
   \ifdefined\proceedings
   \else
     \subimport{common/}{turnexample.tex}
@@ -22,7 +22,7 @@
 
   \noindent We now define the Trust Is Risk Game formally. We assume players are chosen so that, after her turn, a player will
   eventually play again later.
-  \subimport{fc17/algorithms/}{trustisriskgame.tex}
+  \subimport{ecescon17/algorithms/}{trustisriskgame.tex}
 
   \noindent \texttt{strategy[}$A$\texttt{]()} provides player $A$ with full knowledge of the game, except for the capitals of
   other players. This assumption may not be always realistic. \texttt{executeTurn()} checks the validity of \texttt{Turn} and

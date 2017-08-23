@@ -35,21 +35,6 @@
   escapeinside={(*@}{@*)},
   frame=n
 }
-\lstdefinestyle{numbers}{numbers=left, stepnumber=1, numberstyle=\tiny, numbersep=10pt}
-\let\origthelstnumber\thelstnumber
-\makeatletter
-\newcommand*\Suppressnumber{%
-  \lst@AddToHook{OnNewLine}{%
-    \let\thelstnumber\relax%
-     \advance\c@lstnumber-\@ne\relax%
-    }%
-}
-
-\newcommand*\Reactivatenumber{%
-  \lst@AddToHook{OnNewLine}{%
-   \let\thelstnumber\origthelstnumber%
-   \advance\c@lstnumber\@ne\relax}%
-}
 
 %bitcoin character
 \def\bitcoin{%
