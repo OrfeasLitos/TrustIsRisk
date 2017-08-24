@@ -1,0 +1,126 @@
+\phantomsection
+\addcontentsline{lof}{section}{Transitive Game}
+\begin{center}
+\begin{tikzpicture}[>=latex,line join=bevel,scale=0.5,transform shape]
+%%
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+  \filldraw (0.0bp,0.0bp) -- (0.0bp,302.0bp) -- (457.0bp,302.0bp) -- (457.0bp,0.0bp) -- cycle;
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+  \filldraw (0.0bp,0.0bp) -- (0.0bp,302.0bp) -- (457.0bp,302.0bp) -- (457.0bp,0.0bp) -- cycle;
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (228.5bp,11.5bp) node {\LARGE \textbf{Fig.~\figlabel{fig:transitivegame}:} $B$ steals 7\bitcoin, then $D$ steals 3\bitcoin \:and finally $C$ steals 3\bitcoin};
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (239.0bp,22.0bp) -- (239.0bp,161.0bp) -- (449.0bp,161.0bp) -- (449.0bp,22.0bp) -- cycle;
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (284.0bp,83.5bp) node {\LARGE $\mathcal{G}_3$};
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (8.0bp,24.0bp) -- (8.0bp,163.0bp) -- (218.0bp,163.0bp) -- (218.0bp,24.0bp) -- cycle;
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (3.0bp,83.5bp) node {\LARGE $\mathcal{G}_2$};
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (239.0bp,169.0bp) -- (239.0bp,302.0bp) -- (449.0bp,302.0bp) -- (449.0bp,169.0bp) -- cycle;
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (284.0bp,230.5bp) node {\LARGE $\mathcal{G}_1$};
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (8.0bp,184.0bp) -- (8.0bp,302.0bp) -- (218.0bp,302.0bp) -- (218.0bp,184.0bp) -- cycle;
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (3.0bp,230.5bp) node {\LARGE $\mathcal{G}_0$};
+\end{scope}
+  \node (B3) at (192.0bp,246.0bp) [draw,ellipse,fill] {\LARGE \textcolor{white}{B}};
+  \node (B2) at (473.0bp,246.0bp) [draw,ellipse] {\LARGE B};
+  \node (D2) at (394.0bp,271.0bp) [draw,ellipse,fill] {\LARGE \textcolor{white}{D}};
+  \node (D2mood) at (394.0bp,292.0bp) {\LARGE Angry};
+  \node (D3) at (113.0bp,271.0bp) [draw,ellipse] {\LARGE D};
+  \node (D3mood) at (113.0bp,292.0bp) {\LARGE Happy};
+  \node (A1) at (34.0bp,105.0bp) [draw,ellipse] {\LARGE A};
+  \node (A0) at (315.0bp,105.0bp) [draw,ellipse] {\LARGE A};
+  \node (A3) at (34.0bp,252.0bp) [draw,ellipse] {\LARGE A};
+  \node (A2) at (315.0bp,252.0bp) [draw,ellipse] {\LARGE A};
+  \node (E0) at (315.0bp,51.0bp) [draw,ellipse] {\LARGE E};
+  \node (E0mood) at (315.0bp,30.0bp) {\LARGE Sad};
+  \node (E1) at (34.0bp,51.0bp) [draw,ellipse] {\LARGE E};
+  \node (E1mood) at (34.0bp,30.0bp) {\LARGE Happy};
+  \node (E2) at (315.0bp,198.0bp) [draw,ellipse] {\LARGE E};
+  \node (E2mood) at (315.0bp,177.0bp) {\LARGE Happy};
+  \node (E3) at (34.0bp,198.0bp) [draw,ellipse] {\LARGE E};
+  \node (E3mood) at (34.0bp,177.0bp) {\LARGE Happy};
+  \node (C3) at (113.0bp,217.0bp) [draw,ellipse] {\LARGE C};
+  \node (C3mood) at (113.0bp,196.0bp) {\LARGE Happy};
+  \node (C2) at (394.0bp,217.0bp) [draw,ellipse] {\LARGE C};
+  \node (C2mood) at (394.0bp,196.0bp) {\LARGE Angry};
+  \node (C1) at (113.0bp,70.0bp) [draw,ellipse,fill] {\LARGE \textcolor{white}{C}};
+  \node (C1mood) at (113.0bp,49.0bp) {\LARGE Angry};
+  \node (C0) at (394.0bp,70.0bp) [draw,ellipse] {\LARGE C};
+  \node (C0mood) at (394.0bp,49.0bp) {\LARGE Happy};
+  \node (B1) at (192.0bp,99.0bp) [draw,ellipse] {\LARGE B};
+  \node (B0) at (473.0bp,99.0bp) [draw,ellipse] {\LARGE B};
+  \node (D0) at (394.0bp,124.0bp) [draw,ellipse] {\LARGE D};
+  \node (D0mood) at (394.0bp,145.0bp) {\LARGE Sad};
+  \node (D1) at (113.0bp,124.0bp) [draw,ellipse] {\LARGE D};
+  \node (D1mood) at (113.0bp,145.0bp) {\LARGE Sad};
+  \draw [->,very thick] (E1) ..controls (59.732bp,49.525bp) and (68.942bp,49.948bp)  .. (77.0bp,52.0bp) .. controls (82.045bp,53.285bp) and (87.187bp,55.399bp)  .. (C1);
+  \draw (73.5bp,59.5bp) node {\LARGE 7\bitcoin};
+  \draw [->] (A3) ..controls (62.101bp,239.65bp) and (78.735bp,232.41bp)  .. (C3);
+  \draw (73.5bp,243.5bp) node {\LARGE 6\bitcoin};
+  \draw [->,very thick] (A1) ..controls (62.101bp,92.65bp) and (78.735bp,83.41bp)  .. (C1);
+  \draw (73.5bp,96.5bp) node {\LARGE 6\bitcoin};
+  \draw [->,very thick] (A2) ..controls (343.71bp,258.84bp) and (358.24bp,262.42bp)  .. (D2);
+  \draw (354.5bp,270.5bp) node {\LARGE 3\bitcoin};
+  \draw [->] (A0) ..controls (343.17bp,92.65bp) and (359.1bp,83.41bp)  .. (C0);
+  \draw (354.5bp,96.5bp) node {\LARGE 4\bitcoin};
+  \draw [->] (E3) ..controls (59.732bp,196.52bp) and (68.942bp,196.95bp)  .. (77.0bp,199.0bp) .. controls (82.045bp,200.28bp) and (87.187bp,202.4bp)  .. (C3);
+  \draw (73.5bp,206.5bp) node {\LARGE 7\bitcoin};
+  \draw [->] (E2) ..controls (340.73bp,196.52bp) and (349.94bp,196.95bp)  .. (358.0bp,199.0bp) .. controls (363.04bp,200.28bp) and (368.19bp,202.4bp)  .. (C2);
+  \draw (354.5bp,206.5bp) node {\LARGE 7\bitcoin};
+  \draw [->] (A2) ..controls (343.17bp,239.65bp) and (359.1bp,232.41bp)  .. (C2);
+  \draw (354.5bp,243.5bp) node {\LARGE 6\bitcoin};
+  \draw [->,very thick] (C3) ..controls (141.95bp,230.63bp) and (156.16bp,234.48bp)  .. (B3);
+  \draw (152.5bp,242.5bp) node {\LARGE 3\bitcoin};
+  \draw [->,very thick] (D3) ..controls (141.1bp,264.51bp) and (157.73bp,257.01bp)  .. (B3);
+  \draw (152.5bp,268.5bp) node {\LARGE 4\bitcoin};
+  \draw [->] (A3) ..controls (62.955bp,258.84bp) and (77.158bp,262.42bp)  .. (D3);
+  \draw (73.5bp,270.5bp) node {\LARGE 3\bitcoin};
+  \draw [->] (E0) ..controls (340.73bp,49.525bp) and (349.94bp,49.948bp)  .. (358.0bp,52.0bp) .. controls (363.04bp,53.285bp) and (368.19bp,55.399bp)  .. (C0);
+  \draw (354.5bp,59.5bp) node {\LARGE 6\bitcoin};
+  \draw (0.0bp,161.5bp) -- (485.0bp,161.5bp);
+%
+\end{tikzpicture}
+\end{center}
