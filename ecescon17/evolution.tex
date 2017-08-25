@@ -4,11 +4,10 @@
   \subimport{ecescon17/definitions/}{turns.tex}
   \ifdefined\proceedings
   \else
-    \subimport{common/}{turnexample.tex}
-    We use $prev\left(j\right)$ and $next\left(j\right)$ to denote the previous and next turn respectively played by
-    $Player(j)$.
   \fi
-  \subimport{common/definitions/}{prevnextturn.tex}
+  \subimport{common/}{turnexample.tex}
+  We use $prev\left(j\right)$ to denote the previous turn played by $Player(j)$. If she has not played before,
+  $prev\left(j\right) = 0$.
   \subimport{common/definitions/}{damage.tex}
   \subimport{common/definitions/}{history.tex}
   \noindent Knowledge of the initial graph $\mathcal{G}_0$, all players' initial capital and the history amount to full
