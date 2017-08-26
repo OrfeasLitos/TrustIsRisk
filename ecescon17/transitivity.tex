@@ -1,29 +1,9 @@
 \section{Trust Transitivity}
-  In this section we define some strategies and show the corresponding algorithms. Then we define the Transitive Game, the
-  worst-case scenario for an honest player when another player plays maliciously.
-  \subimport{common/definitions/}{idlestrategy.tex}
-
-  \subimport{ecescon17/algorithms/}{idlestrategycode.tex}
-  The inputs and outputs are identical to those of \texttt{idleStrategy()} for the rest of the strategies, thus we avoid
-  repeating them.
-  \subimport{common/definitions/}{evilstrategy.tex}
-
-  \subimport{ecescon17/algorithms/}{evilstrategycode.tex}
-
-  \subimport{common/definitions/}{conservativestrategy.tex}
-
-  \subimport{ecescon17/algorithms/}{conservativestrategycode.tex}
-  \texttt{SelectSteal()} returns $y_v$ with $v \in N^{-}\left(A\right)_{j-1}$ such that
-  \begin{equation}
-  \label{stealrestriction}
-  \begin{gathered}
-     \sum\limits_{v \in N^{-}\left(A\right)_{j-1}}y_v = Dmg_{A, j} \enspace \wedge \\
-     \wedge \enspace \forall v \in N^{-}\left(A\right)_{j-1}, y_v \leq DTr_{v \rightarrow A, j-1} \enspace.
-  \end{gathered}
-  \end{equation}
-  Player $A$ can arbitrarily define how \texttt{SelectSteal()} distributes the $Steal\left(\right)$ actions
-  each time she calls the function, as long as (\ref{stealrestriction}) is respected.
-
+  In this section we define some strategies for the players and the Transitive Game, the worst-case scenario for an honest
+  player when another player plays maliciously.
+  \subimport{ecescon17/definitions/}{idlestrategy.tex}
+  \subimport{ecescon17/definitions/}{evilstrategy.tex}
+  \subimport{ecescon17/definitions/}{conservativestrategy.tex}
   The rationale behind this strategy arises from a real-world common situation. Suppose there are a client, an
   intermediary and a producer. The client entrusts some value to the intermediary so that the latter can buy the desired
   product from the producer and deliver it to the client. The intermediary in turn entrusts an equal value to the
@@ -35,17 +15,15 @@
   scenario that a client can face after an evil player decides to steal everything she can and the rest of the players do
   not engage in evil activity.
 
-  We continue with a possible evolution of the game, the Transitive Game.
-  \subimport{ecescon17/algorithms/}{transitivegame.tex}
 
+  The Transitive Game is the special game of the Trust is Risk Game in which one player is Idle, one player is Evil and the
+  rest are Conservative. An example follows.
   \subimport{ecescon17/figures/}{transitivegameexample.tikz}
 
   \noindent In turn 0, there is already a network in place. All players apart from $A$ and $B$ follow the conservative
-  strategy. The set of players is not modified throughout the Transitive Game, thus we can refer to $\mathcal{V}_j$ as
-  $\mathcal{V}$. Each conservative player can be in one of three states: Happy, Angry or Sad. Happy players have 0 loss, Angry
-  players have positive loss and positive incoming direct trust (line~\ref{trstealaddwangry}), thus are able to replenish
-  their loss at least in part and Sad players have positive loss, but 0 incoming direct trust (line~\ref{trstealaddwsad}),
-  thus they cannot replenish the loss. An example execution can be seen in Fig.~\ref{fig:transitivegame}.
+  strategy. Each conservative player can be in one of three states: Happy, Angry or Sad. Happy players have 0 loss, Angry
+  players have positive loss and positive incoming direct trust, thus are able to replenish their loss at least in part; Sad
+  players have positive loss, but 0 incoming direct trust, thus they cannot replenish the loss.
 
   Let $j_0$ be the first turn on which $B$ is chosen to play. Until then, all players will pass their turn since nothing has
   been stolen yet \cite{trustisrisk}. Moreover, let $v = Player(j)$. The Transitive Game generates turns:
