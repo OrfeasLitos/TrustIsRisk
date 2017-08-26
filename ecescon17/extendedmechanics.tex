@@ -3,7 +3,7 @@
   all her coins, say $10\bitcoin$, are stored in such a way that she exclusively can spend them. $Alice$ has no incoming or
   outgoing direct trust and $As_{Alice, 0} = Cap_{Alice, 0} = 10\bitcoin$.
 
-  She then decides to join Trust Is Risk. She has two friends already in the network, $Bob$ and $Charlie$. She places
+  She then decides to join Trust is Risk. She has two friends already in the network, $Bob$ and $Charlie$. She places
   $2\bitcoin$ in a $1/\{Alice, Bob\}$ multisig and $5\bitcoin$ in a $1/\{Alice, Charlie\}$ multisig. Now she is part of the
   network and it is
   \begin{align*}
@@ -18,7 +18,7 @@
   She is risking $7\bitcoin$ in exchange for being part of the network.
 
   Suppose that the network remains idle. A few days later, she discovers an online shoes shop owned by $Dean$ that claims to
-  have joined Trust Is Risk. She finds a nice pair of shoes that costs $V = 1\bitcoin$ and asks our system how much she
+  have joined Trust is Risk. She finds a nice pair of shoes that costs $V = 1\bitcoin$ and asks our system how much she
   indirectly trusts $Dean$. The system scans the UTXO, executes $MaxFlow(Alice, Dean)$ and returns
   $Tr_{Alice \rightarrow Dean, 1} = 4\bitcoin$. Since $V \leq Tr_{Alice \rightarrow Dean, 1}$, she confidently proceeds to
   buy the shoes. However, to avoid increasing her indirect trust towards the shoes shop, she first reduces her direct trust
