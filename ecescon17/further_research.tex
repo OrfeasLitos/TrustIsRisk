@@ -1,21 +1,12 @@
 \section{Further Research}
+  Before a purchase, outgoing direct trust should be reduced as in (\ref{primetrust}). \cite{trustisriskmaster} discusses
+  suitable algorithms.
 
-  %\subsection{Trust Transfer Algorithms}
-    When a purchase is made, outgoing direct trust must be reduced such that (\ref{primetrust}) holds. Trust redistribution
-    algorithms for this will be discussed in a future paper.
+  Our game is static. In a dynamic setting, users will play simultaneously, freely join, depart or disconnect temporarily. In
+  a future analysis we will model repeated purchases and treat trust as part of the utility function. 
 
-  %\subsection{Dynamic Setting}
-    Our game is static. In a future dynamic setting, users should be able to play simultaneously, freely join, depart or
-    disconnect temporarily from the network. An interesting analysis would involve modelling repeated purchases with the
-    respective edge updates on the trust graph and treating trust on the network as part of the utility function. Other types
-    of multisigs, such as 1-of-3, can be explored.
+  MaxFlow now needs full network knowledge, which defeats privacy \cite{deanonymisation}. Calculating the flows in zero
+  knowledge remains an open question. \cite{silentwhispers} and \cite{privpay} offer insight into how privacy can be achieved.
 
-  %\subsection{Zero knowledge}
-    MaxFlow in our case needs complete network knowledge, which can lead to privacy issues \cite{deanonymisation}. Calculating
-    the flows in zero knowledge remains an open question. SilentWhispers \cite{silentwhispers} and its centralized
-    predecessor, PrivPay \cite{privpay}, offer insight into how privacy can be achieved.
-
-  %\subsection{Implementation and Experimental Results}
-    A wallet implementation of our game on any blockchain is welcome. Experimental results can be harvested by a simulation or
-    implementation of Trust is Risk. Afterwards, our system can be used in decentralized social networks, such as Synereo
-    \cite{synereo}, and other applications.
+  An open source implementation of an API in Bitcoin for OpenBazaar is under development. After deployment, analysis of the
+  usage patterns will give insights into the social dynamics Trust is Risk promotes.
