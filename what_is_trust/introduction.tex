@@ -23,6 +23,13 @@
 
   \subimport{./definitions/}{costofdesire.tex}
 
+  It is reasonable to assume that there exists an absolute minimum of tokens that must be spent for the satisfaction of a
+  desire, no matter how efficient the calculating party is.
+
+  \subimport{./definitions/}{minimumcostofdesire.tex}
+
+  Note that $1 \geq c_{min}\left(idx, d, Alice\right) \leq \min\limits_{v \in \mathcal{P}}{c\left(idx, d, Alice, v\right)}$.
+
   The game begins with all players being created by $\mathcal{E}$, each allocated a random amount of input tokens. The game
   ends at a moment specified by the $\mathcal{E}$, which is unknown to the players. At that moment $\mathcal{E}$ assigns a
   utility to each player depending on which desires were satisfied throughout the game.
