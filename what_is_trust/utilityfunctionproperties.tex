@@ -1,0 +1,36 @@
+\section{Utility Function Properties}
+  Let $v \in \mathcal{P}$. The only property that any utility function should satisfy is that having more desires satisfied
+  and less desires unsatisfied leads to a higher utility.
+  More formally, consider two executions of the game (1) and (2):
+  \begin{equation*}
+    \begin{rcases}
+    \begin{aligned}
+      SatDesires_1\left(v\right) &\subseteq SatDesires_2\left(v\right) \\
+      UnsatDesires_2\left(v\right) &\subseteq UnsatDesires_1\left(v\right)
+    \end{aligned}
+    \end{rcases}
+    \Rightarrow u_{v,1} \leq u_{v,2} \enspace.
+  \end{equation*}
+  If one of the two subset is strict, then the inequality becomes strict as well.
+
+  As an example, consider two executions of the game (1) and (2) in which $v$ was input exactly the same desires and satisfied
+  the same desires, except for $\left(idx, d\right)$, which was satisfied only in game (2) and remained unsatisfied in game
+  (1). Then $u_{v,1} < u_{v,2}$. Going in some detail:
+  \begin{gather*}
+    \mbox{Let } Desires_1\left(v\right) = Desires_2\left(v\right) = \{\left(idx, d\right)\} \cup Rest \enspace. \\
+    \mbox{It is: } \:\:
+    \begin{aligned}
+      SatDesires_1\left(v\right) &= Rest \enspace, \\
+      UnsatDesires_1\left(v\right) &= Rest \cup \{\left(idx, d\right)\} \enspace, \\
+      SatDesires_2\left(v\right) &= Rest \cup \{\left(idx, d\right)\} \enspace\mbox{and} \\
+      UnsatDesires_2\left(v\right) &= Rest \enspace,
+    \end{aligned} \\
+    \mbox{thus:   } \:\: 
+    \begin{rcases}
+    \begin{aligned}
+      SatDesires_1\left(v\right) &\subset SatDesires_2\left(v\right) \\
+      UnsatDesires_2\left(v\right) &\subset UnsatDesires_1\left(v\right)
+    \end{aligned}
+    \end{rcases}
+    \Rightarrow u_{v,1} < u_{v,2} \enspace.
+  \end{gather*}
