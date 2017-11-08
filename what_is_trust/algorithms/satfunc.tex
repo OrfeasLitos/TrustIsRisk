@@ -1,0 +1,31 @@
+\Suppressnumber
+\begin{lstlisting}[label=satfunc, style=numbers]
+(*@$\mathcal{F}_{SAT}$ \Reactivatenumber@*)
+Initialization:
+allSet = False
+for all (*@$Alice \in \mathcal{P}$@*)
+  set((*@$Alice$@*)) = False
+
+Upon receiving input set(tokens, map(desire => price)) from (*@$Alice$@*):
+  If set((*@$Alice$@*)) == False
+    set((*@$Alice$@*)) = True
+    tokens[(*@$Alice$@*)] = tokens
+    prices[(*@$Alice$@*)] = map
+    If (*@$\nexists Bob \in \mathcal{P}:$@*) set((*@$Bob$@*)) == False
+      allSet = True
+
+Upon receiving message cost((*@$Bob$@*), desire) from (*@$Alice$@*):
+  send message prices[(*@$Bob$@*)](desire) to (*@$Alice$@*)
+
+Upon receiving message sat(desire) from (*@$Bob$@*):
+  Choose whether to satisfy this desire and with whose tokens
+  If the desire is satisfied
+    Return the string
+  Else
+    Return (*@$\epsilon$@*)
+
+transfer((*@$Alice$@*), (*@$Bob$@*), tokens):
+  If tokens[(*@$Alice$@*)] >= tokens
+    tokens[(*@$Alice$@*)] = tokens[(*@$Alice$@*)] - tokens
+    tokens[(*@$Bob$@*)] = tokens[(*@$Bob$@*)] + tokens
+\end{lstlisting}
