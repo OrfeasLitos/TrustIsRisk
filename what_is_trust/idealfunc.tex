@@ -15,3 +15,14 @@
   Without knowledge of the utilities the environment is going to give to each satisfied desire, the functionality may fail
   spectacularly. So knowledge of the utility of each desire, or at least some function of the utility given the desires is
   needed. We can assume that $\mathcal{F}_{SAT}$ knows $U$ or an approximation of it.
+
+  Going into more detail, $\mathcal{F}_{SAT}$ is a stateful process that acts as a market and as a bank for the players. The
+  market does not offer a particular product for the same price to all users; For some users it may be cheaper than for others,
+  reflecting the fact that some players can realize some desires more efficiently than others.
+
+  $\mathcal{F}_{SAT}$ stores a number for each player that represents the amount of tokens this player has and a table with the
+  price of each desire for each player. It provides the functions $cost\left(u, d\right)$ which returns the cost of the desire
+  $d$ for player $u$ with no side effects, $sat\left(u, d\right)$ that returns the string that satisfies the desire $d$ to $u$
+  and reduces the amount of the tokens belonging to $u$ by $cost\left(u, d\right)$ and $transfer\left(u_1, u_2, t\right)$ which
+  reduces the amount of tokens $u_1$ has by $t$ and increases the tokens of $u_2$ by $t$, given that initially the tokens
+  belonging to $u_1$ were equal or more than $t$.
