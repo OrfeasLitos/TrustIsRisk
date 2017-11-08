@@ -23,6 +23,7 @@
   $\mathcal{F}_{SAT}$ stores a number for each player that represents the amount of tokens this player has and a table with the
   price of each desire for each player. It provides the functions $cost\left(u, d\right)$ which returns the cost of the desire
   $d$ for player $u$ with no side effects, $sat\left(u, d\right)$ that returns the string that satisfies the desire $d$ to $u$
-  and reduces the amount of the tokens belonging to $u$ by $cost\left(u, d\right)$ and $transfer\left(u_1, u_2, t\right)$ which
-  reduces the amount of tokens $u_1$ has by $t$ and increases the tokens of $u_2$ by $t$, given that initially the tokens
-  belonging to $u_1$ were equal or more than $t$.
+  and reduces the amount of the tokens belonging to $u$ by $cost\left(u, d\right)$. There exists also the function
+  $transfer\left(u_1, u_2, t\right)$ which reduces the amount of tokens $u_1$ has by $t$ and increases the tokens of $u_2$ by
+  $t$, given that initially the tokens belonging to $u_1$ were equal or more than $t$. This function is private to the
+  functionality, thus can be used only internally.
