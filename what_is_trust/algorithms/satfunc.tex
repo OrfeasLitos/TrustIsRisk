@@ -15,17 +15,18 @@ Upon receiving input set(tokens, map(desire => price)) from (*@$Alice$@*):
       allSet = True
 
 Upon receiving message cost((*@$Bob$@*), desire) from (*@$Alice$@*):
-  send message prices[(*@$Bob$@*)](desire) to (*@$Alice$@*)
+  If allSet == True
+    send message prices[(*@$Bob$@*)](desire) to (*@$Alice$@*)
 
 Upon receiving message sat(desire) from (*@$Bob$@*):
-  Choose whether to satisfy this desire and with whose tokens
-  If the desire is satisfied
-    Return the string
-  Else
-    Return (*@$\epsilon$@*)
+  If allSet == True
+    Choose whether to satisfy this desire and with whose tokens based on a utility function to be defined
+    If the desire is satisfied
+      send message (*@$s$@*)(desire, (*@$Bob$@*)) to (*@$Bob$@*)
 
 transfer((*@$Alice$@*), (*@$Bob$@*), tokens):
-  If tokens[(*@$Alice$@*)] >= tokens
-    tokens[(*@$Alice$@*)] = tokens[(*@$Alice$@*)] - tokens
-    tokens[(*@$Bob$@*)] = tokens[(*@$Bob$@*)] + tokens
+  If allSet == True
+    If tokens[(*@$Alice$@*)] >= tokens
+      tokens[(*@$Alice$@*)] = tokens[(*@$Alice$@*)] - tokens
+      tokens[(*@$Bob$@*)] = tokens[(*@$Bob$@*)] + tokens
 \end{lstlisting}
