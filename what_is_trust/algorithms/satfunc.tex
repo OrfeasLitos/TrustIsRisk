@@ -1,32 +1,76 @@
 \Suppressnumber
 \begin{lstlisting}[label=satfunc, style=numbers]
 (*@$\mathcal{F}_{SAT}$ \Reactivatenumber@*)
-Initialization:
-allSet = False
-for all (*@$Alice \in \mathcal{P}$@*)
-  set((*@$Alice$@*)) = False
+Declarations:
+  boolean allSet
+  set pendingDesires
+  map isSet((*@$\mathcal{P}$@*) => boolean)
+  map price((*@$\mathcal{P}$@*) => map ((*@$\mathcal{D}$@*) => number)) (*@\newline@*) # Is just the best price enough?
+  map tokens((*@$\mathcal{P}$@*) => number)
+  map fulfillment((*@$\mathcal{P}$@*) => map ((*@$\mathcal{D}$@*) => SAT))
+  map utility((*@$\mathcal{P}$@*) => function(set, set): number) (*@\newline@*) # This map has hardcoded values
 
-Upon receiving input set(tokens, map(desire => price)) from (*@$Alice$@*):
-  If set((*@$Alice$@*)) == False
-    set((*@$Alice$@*)) = True
-    tokens[(*@$Alice$@*)] = tokens
-    prices[(*@$Alice$@*)] = map
-    If (*@$\nexists Bob \in \mathcal{P}:$@*) set((*@$Bob$@*)) == False
+Initialization:
+  allSet = False
+  pendingDesires = (*@$\emptyset$@*)
+  (*@$\forall$@*) (*@$Alice \in \mathcal{P}$@*)
+    isSet((*@$Alice$@*)) = False
+    price((*@$Alice$@*)) = null
+    tokens((*@$Alice$@*)) = (*@$\mathcal{F}_{Ledger}$@*).getTokens((*@$Alice$@*))
+    (*@$\forall$@*) desire (*@$\in \mathcal{D}$@*)
+      fulfillment((*@$Alice$@*))(desire) = null
+
+Upon receiving message (*@\newline@*) init(map prices((*@$\mathcal{D}$@*) => number)) from (*@$\mathcal{P}$@*) (*@$Alice$@*):
+  If isSet((*@$Alice$@*)) == False
+    isSet((*@$Alice$@*)) = True
+    price((*@$Alice$@*)) = prices
+    If (*@$\forall$@*) (*@$Bob \in \mathcal{P},$@*) isSet((*@$Bob$@*)) == True
       allSet = True
 
-Upon receiving message cost((*@$Bob$@*), desire) from (*@$Alice$@*):
+Upon receiving message cost((*@$\mathcal{P}$@*) (*@$Bob$@*), (*@$\mathcal{D}$@*) desire) from (*@$\mathcal{P}$@*) (*@$Alice$@*):
   If allSet == True
-    send message prices[(*@$Bob$@*)](desire) to (*@$Alice$@*)
+    send message price((*@$Bob$@*))(desire) to (*@$Alice$@*)
 
-Upon receiving message sat(desire) from (*@$Bob$@*):
+Upon receiving message satisfy((*@$\mathcal{D}$@*) desire) from (*@$\mathcal{P}$@*) (*@$Alice$@*):
   If allSet == True
-    Choose whether to satisfy this desire and with whose tokens based on a utility function to be defined
-    If the desire is satisfied
-      send message (*@$s$@*)(desire, (*@$Bob$@*)) to (*@$Bob$@*)
+    number minPrice = (*@$\min\limits_{Bob \in \mathcal{P}}\left\{\right.$@*)price((*@$Bob$@*))(desire)(*@$\left.\right\}$@*)
+    If tokens((*@$Alice$@*)) (*@$\geq$@*) minPrice
+      tokens((*@$Alice$@*)) = tokens((*@$Alice$@*)) - minPrice
+      fulfillment((*@$Alice$@*))(desire) = (*@$s$@*)((*@$Alice$@*), desire)
+    Else If utility((*@$Alice$@*))(satDesires((*@$Alice$@*)) (*@$\cup$@*) desire, unsatDesires((*@$Alice$@*)) (*@$\setminus$@*) desire) - utility((*@$Alice$@*))(satDesires((*@$Alice$@*)), unsatDesires((*@$Alice$@*))) > (utility that can be gained for other players for minPrice)
+      support = choosePayers(minPrice)
+      (*@$\forall$@*) ((*@$Bob$@*), partialPrice) (*@$\in$@*) support
+        tokens((*@$Bob$@*)) = tokens((*@$Bob$@*)) - partialPrice
+      fulfillment((*@$Alice$@*))(desire) = (*@$s$@*)((*@$Alice$@*), desire)
+    Else # desire remains unsatisfied
+      pendingDesires = pendingDesires (*@$\cup$@*) ((*@$Alice$@*), desire)
+    Attempt to satisfy desires from pendingDesires (*@\newline@*) # How? Also, could be (*@$\mathcal{F}_{SAT}$@*) idle action
 
-transfer((*@$Alice$@*), (*@$Bob$@*), tokens):
+Upon receiving message (*@\newline@*) getFulfillment((*@$\mathcal{D}$@*) desire) from (*@$\mathcal{P}$@*) (*@$Alice$@*):
   If allSet == True
-    If tokens[(*@$Alice$@*)] >= tokens
-      tokens[(*@$Alice$@*)] = tokens[(*@$Alice$@*)] - tokens
-      tokens[(*@$Bob$@*)] = tokens[(*@$Bob$@*)] + tokens
+    send message fulfillment((*@$Alice$@*))(desire) to (*@$Alice$@*)
+
+choosePayers(number price) returns set of ((*@$\mathcal{P}$@*), number)
+# Chooses to charge players that are most likely not to benefit by their tokens
+
+satDesires((*@$\mathcal{P}$@*) (*@$Alice$@*)) returns set:
+  ret = (*@$\emptyset$@*)
+  (*@$\forall$@*) desire (*@$\in$@*) (*@$\mathcal{D}$@*)
+    if fulfillment((*@$Alice$@*))(desire) (*@$\neq$@*) null
+    ret = ret (*@$\cup$@*) desire
+  return ret
+
+unsatDesires((*@$\mathcal{P}$@*) (*@$Alice$@*)) returns set:
+  ret = (*@$\emptyset$@*)
+  (*@$\forall$@*) desire (*@$\in$@*) (*@$\mathcal{D}$@*)
+    if fulfillment((*@$Alice$@*))(desire) == null
+    ret = ret (*@$\cup$@*) desire
+  return ret
+
+# May be redundant
+transfer((*@$\mathcal{P}$@*) (*@$Alice$@*), (*@$\mathcal{P}$@*) (*@$Bob$@*), number tokens):
+  If allSet == True
+    If tokens((*@$Alice$@*)) (*@$\geq$@*) tokens
+      tokens((*@$Alice$@*)) = tokens((*@$Alice$@*)) - tokens
+      tokens((*@$Bob$@*)) = tokens((*@$Bob$@*)) + tokens
 \end{lstlisting}
