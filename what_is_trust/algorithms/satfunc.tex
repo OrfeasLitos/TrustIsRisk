@@ -61,7 +61,8 @@ shouldBeSatisfied((*@$\mathcal{P}$@*) (*@$Alice$@*), (*@$\mathcal{D}$@*) desire,
     return []
 
 chooseSupport(number price) returns number[(*@$|\mathcal{P}|$@*)]
-# Chooses to charge players that are most likely not to benefit by their tokens
+# Chooses to charge the richest players (not the best idea)
+# See also Absolute Equality Trust Transfer, github.com/OrfeasLitos/TrustIsRisk/blob/master/thesis.pdf, p. 29  
 
 satDesires((*@$\mathcal{P}$@*) (*@$Alice$@*)) returns set (*@$\subset$@*) (*@$\mathcal{D}$@*):
   ret = (*@$\emptyset$@*)
