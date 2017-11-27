@@ -37,20 +37,30 @@ Upon receiving message satisfy((*@$\mathcal{D}$@*) desire) from (*@$\mathcal{P}$
     If tokens((*@$Alice$@*)) (*@$\geq$@*) minPrice
       tokens((*@$Alice$@*)) = tokens((*@$Alice$@*)) - minPrice
       fulfillment((*@$Alice$@*))(desire) = (*@$s$@*)((*@$Alice$@*), desire)
-    Else If utility((*@$Alice$@*))(satDesires((*@$Alice$@*)) (*@$\cup$@*) desire, unsatDesires((*@$Alice$@*)) (*@$\setminus$@*) desire) - utility((*@$Alice$@*))(satDesires((*@$Alice$@*)), unsatDesires((*@$Alice$@*))) > (utility that can be gained for other players for minPrice)
-      support = choosePayers(minPrice)
-      (*@$\forall$@*) ((*@$Bob$@*), partialPrice) (*@$\in$@*) support
-        tokens((*@$Bob$@*)) = tokens((*@$Bob$@*)) - partialPrice
-      fulfillment((*@$Alice$@*))(desire) = (*@$s$@*)((*@$Alice$@*), desire)
-    Else # desire remains unsatisfied
-      pendingDesires = pendingDesires (*@$\cup$@*) ((*@$Alice$@*), desire)
+    Else
+      support = shouldBeSatisfied((*@$Alice$@*), desire, minPrice)
+      If support (*@$\neq$@*) []
+        (*@$\forall$@*) i (*@$\in$@*) [1, ...,(*@$|\mathcal{P}|$@*)]
+          tokens((*@$P_{\mbox{i}}$@*)) = tokens((*@$P_{\mbox{i}}$@*)) - support[i]
+        fulfillment((*@$Alice$@*))(desire) = (*@$s$@*)((*@$Alice$@*), desire)
+      Else # desire remains unsatisfied
+        pendingDesires = pendingDesires (*@$\cup$@*) ((*@$Alice$@*), desire)
     Attempt to satisfy desires from pendingDesires (*@\newline@*) # How? Also, could be (*@$\mathcal{F}_{SAT}$@*) idle action
 
 Upon receiving message (*@\newline@*) getFulfillment((*@$\mathcal{D}$@*) desire) from (*@$\mathcal{P}$@*) (*@$Alice$@*):
   If allSet == True
     send message fulfillment((*@$Alice$@*))(desire) to (*@$Alice$@*)
 
-choosePayers(number price) returns set of ((*@$\mathcal{P}$@*), number)
+shouldBeSatisfied((*@$\mathcal{P}$@*) (*@$Alice$@*), (*@$\mathcal{D}$@*) desire, number minPrice) returns number[]:
+  support = chooseSupport(minPrice)
+  utilityWithout = (u((*@$P_1$@*))(satDesires((*@$P_1$@*)), unsatDesires((*@$P_1$@*))), ..., u((*@$P_n$@*))(satDesires((*@$P_n$@*)), unsatDesires((*@$P_n$@*))))
+  utilityWith = (u((*@$P_1$@*))(satDesires((*@$P_1$@*)), unsatDesires((*@$P_1$@*))) - support[1], ..., u((*@$P_n$@*))(satDesires((*@$P_n$@*)), unsatDesires((*@$P_n$@*))) - support[n]) (*@\newline@*) # Should tokens be equated with utility points?
+  If utilityWithout < utilityWith (*@\newline@*) # Define this comparison
+    return support
+  Else
+    return []
+
+chooseSupport(number price) returns number[(*@$|\mathcal{P}|$@*)]
 # Chooses to charge players that are most likely not to benefit by their tokens
 
 satDesires((*@$\mathcal{P}$@*) (*@$Alice$@*)) returns set (*@$\subset$@*) (*@$\mathcal{D}$@*):
