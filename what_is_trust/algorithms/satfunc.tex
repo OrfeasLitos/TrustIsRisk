@@ -8,7 +8,7 @@ Declarations:
   map price((*@$\mathcal{P}$@*) => map ((*@$\mathcal{D}$@*) => number)) (*@\newline@*) # Is just the best price enough?
   map tokens((*@$\mathcal{P}$@*) => number)
   map fulfillment((*@$\mathcal{P}$@*) => map ((*@$\mathcal{D}$@*) => SAT))
-  map utility((*@$\mathcal{P}$@*) => function(set, set): number) (*@\newline@*) # This map has hardcoded values
+  map utility((*@$\mathcal{P}$@*) => function((*@$2^{\mathcal{D}}$@*), (*@$2^{\mathcal{D}}$@*)): number) (*@\newline@*) # This map has hardcoded values
 
 Initialization:
   allSet = False
@@ -53,14 +53,14 @@ Upon receiving message (*@\newline@*) getFulfillment((*@$\mathcal{D}$@*) desire)
 choosePayers(number price) returns set of ((*@$\mathcal{P}$@*), number)
 # Chooses to charge players that are most likely not to benefit by their tokens
 
-satDesires((*@$\mathcal{P}$@*) (*@$Alice$@*)) returns set:
+satDesires((*@$\mathcal{P}$@*) (*@$Alice$@*)) returns set (*@$\subset$@*) (*@$\mathcal{D}$@*):
   ret = (*@$\emptyset$@*)
   (*@$\forall$@*) desire (*@$\in$@*) (*@$\mathcal{D}$@*)
     if fulfillment((*@$Alice$@*))(desire) (*@$\neq$@*) null
     ret = ret (*@$\cup$@*) desire
   return ret
 
-unsatDesires((*@$\mathcal{P}$@*) (*@$Alice$@*)) returns set:
+unsatDesires((*@$\mathcal{P}$@*) (*@$Alice$@*)) returns set (*@$\subset$@*) (*@$\mathcal{D}$@*):
   ret = (*@$\emptyset$@*)
   (*@$\forall$@*) desire (*@$\in$@*) (*@$\mathcal{D}$@*)
     if fulfillment((*@$Alice$@*))(desire) == null
