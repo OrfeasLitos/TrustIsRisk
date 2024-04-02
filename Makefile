@@ -1,4 +1,4 @@
-all: fc17.pdf fc17-proceedings.pdf thesis.pdf thesisgr.pdf may31deliverable.pdf
+all: fc17.pdf fc17-proceedings.pdf thesis.pdf thesisgr.pdf may31deliverable.pdf sbc24.pdf
 
 #.ONESHELL:
 fc17.pdf: fc17/* common/* splncs.bst
@@ -16,6 +16,14 @@ fc17-proceedings.pdf: fc17/* common/* splncs.bst
 	pdflatex fc17-proceedings.tex; \
 	pdflatex fc17-proceedings.tex; \
 	rm -rf fc17-proceedings.aux fc17-proceedings.log fc17-proceedings.out fc17-proceedings.bbl fc17-proceedings.blg
+
+sbc24.pdf: sbc24/* common/* splncs.bst
+	export TEXINPUTS=.:./sbc24//:./common//:; \
+	pdflatex sbc24.tex; \
+	bibtex sbc24.aux; \
+	pdflatex sbc24.tex; \
+	pdflatex sbc24.tex; \
+	rm -rf sbc24.aux sbc24.log sbc24.out sbc24.bbl sbc24.blg
 
 thesis.pdf: thesis/* common/* splncs.bst
 	export TEXINPUTS=.:./thesis//:./common//:; \
