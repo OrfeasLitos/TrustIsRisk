@@ -23,7 +23,7 @@ sbc24.pdf: sbc24/* common/* splncs.bst
 	bibtex sbc24.aux; \
 	pdflatex sbc24.tex; \
 	pdflatex sbc24.tex; \
-	rm -rf sbc24.aux sbc24.log sbc24.out sbc24.bbl sbc24.blg
+	rm -rf sbc24.aux sbc24.log sbc24.out sbc24.bbl sbc24.blg sbc24Notes.bib
 
 thesis.pdf: thesis/* common/* splncs.bst
 	export TEXINPUTS=.:./thesis//:./common//:; \
