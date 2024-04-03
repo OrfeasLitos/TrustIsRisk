@@ -12,13 +12,18 @@
 
   \import{common/definitions/}{conservativestrategy.tex}
 
+  \begin{figure*}
   \import{fc17/algorithms/}{conservativestrategycode.tex}
+  \end{figure*}
 
   \texttt{SelectSteal()} returns $y_v$ with $v \in N^{-}\left(A\right)_{j-1}$ such that
   \begin{equation}
   \label{stealrestriction}
-     \sum\limits_{v \in N^{-}\left(A\right)_{j-1}}y_v = Dmg_{A, j} \enspace \wedge \enspace \forall v \in N^{-}\left(A\right)_{j-1},
+  \begin{gathered}
+     \sum\limits_{v \in N^{-}\left(A\right)_{j-1}}y_v = Dmg_{A, j} \\
+     \wedge \enspace \forall v \in N^{-}\left(A\right)_{j-1},
      y_v \leq DTr_{v \rightarrow A, j-1} \enspace.
+  \end{gathered}
   \end{equation}
   Player $A$ can arbitrarily define how \texttt{SelectSteal()} distributes the $Steal\left(\right)$ actions
   each time she calls the function, as long as (\ref{stealrestriction}) is respected.
@@ -35,9 +40,13 @@
   not engage in evil activity.
 
   We continue with a possible evolution of the game, the Transitive Game.
+  \begin{figure*}
   \import{fc17/algorithms/}{transitivegame.tex}
+  \end{figure*}
 
+  \begin{figure*}
   \import{common/figures/}{transitivegameexample.tikz}
+  \end{figure*}
 
   \noindent In turn 0, there is already a network in place. All players apart from $A$ and $B$ follow the conservative
   strategy. The set of players is not modified throughout the Transitive Game, thus we can refer to $\mathcal{V}_j$ as
