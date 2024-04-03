@@ -1,18 +1,19 @@
 \section{Trust Transitivity}
   In this section we define some strategies and show the corresponding algorithms. Then we define the Transitive Game, the
   worst-case scenario for an honest player when another player plays maliciously.
-  \subimport{common/definitions/}{idlestrategy.tex}
+  \import{common/definitions/}{idlestrategy.tex}
 
-  \subimport{common/algorithms/}{idlestrategycode.tex}
+  \import{common/algorithms/}{idlestrategycode.tex}
   The inputs and outputs are identical to those of \texttt{idleStrategy()} for the rest of the strategies, thus we avoid
   repeating them.
-  \subimport{common/definitions/}{evilstrategy.tex}
+  \import{common/definitions/}{evilstrategy.tex}
 
-  \subimport{common/algorithms/}{evilstrategycode.tex}
+  \import{common/algorithms/}{evilstrategycode.tex}
 
-  \subimport{common/definitions/}{conservativestrategy.tex}
+  \import{common/definitions/}{conservativestrategy.tex}
 
-  \subimport{fc17/algorithms/}{conservativestrategycode.tex}
+  \import{fc17/algorithms/}{conservativestrategycode.tex}
+
   \texttt{SelectSteal()} returns $y_v$ with $v \in N^{-}\left(A\right)_{j-1}$ such that
   \begin{equation}
   \label{stealrestriction}
@@ -34,9 +35,9 @@
   not engage in evil activity.
 
   We continue with a possible evolution of the game, the Transitive Game.
-  \subimport{fc17/algorithms/}{transitivegame.tex}
+  \import{fc17/algorithms/}{transitivegame.tex}
 
-  \subimport{common/figures/}{transitivegameexample.tikz}
+  \import{common/figures/}{transitivegameexample.tikz}
 
   \noindent In turn 0, there is already a network in place. All players apart from $A$ and $B$ follow the conservative
   strategy. The set of players is not modified throughout the Transitive Game, thus we can refer to $\mathcal{V}_j$ as

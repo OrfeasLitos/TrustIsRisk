@@ -1,10 +1,10 @@
 \section{Trust Flow}
   We can now define indirect trust from $A$ to $B$.
-  \subimport{common/definitions/}{indirecttrust.tex}
+  \import{common/definitions/}{indirecttrust.tex}
   \noindent Note that $Tr_{A \rightarrow B} \geq DTr_{A \rightarrow B}$. The next result shows $Tr_{A \rightarrow B}$ is
   finite.
-  \subimport{fc17/theorems/}{convergencetheorem.tex}
-  \subimport{common/proofsketches/}{convergenceproofsketch.tex}
+  \import{fc17/theorems/}{convergencetheorem.tex}
+  \import{common/proofsketches/}{convergenceproofsketch.tex}
   Proofs of all theorems can be found in Appendix A\ifdefined\proceedings \ of the full version \cite{trustisrisk}\fi.
 
   In the setting of \texttt{TransitiveGame(}$\mathcal{G}$\texttt{,}$A$\texttt{,}$B$\texttt{)} and $j$ being a turn in which
@@ -31,12 +31,12 @@
 
   We will now introduce two lemmas that will be used to prove one of the central results of this work, the Trust Flow
   theorem.
-  \subimport{fc17/lemmas/}{flowgamelemma.tex}
-  \subimport{common/proofsketches/}{flowgameproofsketch.tex}
-  \subimport{fc17/lemmas/}{gameflowlemma.tex}
-  \subimport{common/proofsketches/}{gameflowproofsketch.tex}
-  \subimport{common/theorems/}{trustflowtheorem.tex}
-  \subimport{common/proofs/}{trustflowproof.tex}
+  \import{fc17/lemmas/}{flowgamelemma.tex}
+  \import{common/proofsketches/}{flowgameproofsketch.tex}
+  \import{fc17/lemmas/}{gameflowlemma.tex}
+  \import{common/proofsketches/}{gameflowproofsketch.tex}
+  \import{common/theorems/}{trustflowtheorem.tex}
+  \import{common/proofs/}{trustflowproof.tex}
 
   \noindent Note that the maxFlow is the same in the following two cases: If a player chooses the evil strategy and if that
   player chooses a variation of the evil strategy where she does not nullify her outgoing direct trust.
@@ -46,7 +46,7 @@
 
   Here we see another important theorem that gives the basis for risk-invariant transactions between different, possibly
   unknown, parties.
-  \subimport{common/theorems/}{riskinvtheorem.tex}
-  \subimport{common/proofs/}{riskinvproof.tex}
+  \import{common/theorems/}{riskinvtheorem.tex}
+  \import{common/proofs/}{riskinvproof.tex}
   \noindent $A$ can reduce her outgoing direct trust in a manner that achieves (\ref{primetrust}), since
   $maxFlow\left(A, B\right)$ is continuous with respect to $A$'s outgoing direct trusts.
